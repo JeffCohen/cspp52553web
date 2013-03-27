@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  def homework_url(week)
-    "http://github.com/cspp52553/week#{week}".html_safe
+  def homework_url(week, quarter = nil, year = 2013)
+    "http://github.com/cspp52553#{"-" + quarter + "-" + year if quarter}/week#{week}".html_safe
   end
 
   def piazza_url(quarter = 'spring2013')
