@@ -16,4 +16,5 @@ CSPP52553App::Application.routes.draw do
   get '/winter2013' => 'pages#winter2013', as: 'winter2013'
   get '/spring2013' => 'pages#home', as: 'spring2013'
 
+  get '/study-guide' => 'pages#study_guide', as: 'study_guide'
 end

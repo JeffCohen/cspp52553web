@@ -51,3 +51,27 @@ li.news_item {
   }
 
 }
+
+#study_guide {
+  code {
+    font-size: 18px;
+  }
+  li {
+    font-size: 20px;
+    line-height: 29px;
+
+    a {
+      font-weight: bold;
+    }
+    .answer {
+      padding: 12px;
+      color: #666;
+    }
+  }
+
+}
+
+
+
+
+

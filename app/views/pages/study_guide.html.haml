@@ -1,0 +1,72 @@
+#study_guide
+  .row.page-header
+    %h1
+      CSPP 52553 Study Guide
+      %small Here are the essentials worth studying.
+
+  .row
+    %ol
+      %li
+        %span.label HTTP
+        = link_to 'How would you describe the primary characteristics of HTTP?', '#', class: 'question'
+        %p.answer
+          HTTP is a request-response protocol. The primary philosophy involves a
+          %em client
+          requesting
+          %em resources
+          from a
+          %em server.
+          Headers in the request must include, among other things, the resource being requested (the URL) and the method that should be applied (generally one of GET, POST, PUT, or DELETE).
+          %br
+          %br
+          Requests and responses both contain a header of key-value pairs and an optional body element.  All data is always conveyed as strings, both header data and body data.  Binary data must be encoded as text (for example, using base64 encoding, etc.) and decoded on the receiving end.
+
+      %li
+        %span.label.label-success Ruby
+        = link_to "What's the primary difference between the 'do' and 'def' keywords in Ruby?", '#', class: 'question'
+        %p.answer
+          %code def
+          is for defining a section of code as named method.  The code does not run immediately but is expected to be invoked later.  The
+          %code do
+          keyword defines a section of code as an anonymous method to be passed immediately as a parameter into another method.
+      %li
+        %span.label.label-success Ruby
+        = link_to "What's the difference between an 'instance method' and a 'class method' in Ruby?", '#', class: 'question'
+        %p.answer
+          An instance method is a method of a class that can only be invoked on a specific instance of that class.  A class method is invoked directly against the class itself, and cannot be invoked against any specific instance of the class.
+      %li
+        %span.label HTTP
+        = link_to "What is a web-based API?", '#', class: 'question'
+        %p.answer
+          It's a way for any two software components to communicate over HTTP instead of a proprietary or language-specific protocol.
+
+      %li
+        %span.label HTTP
+        = link_to "Do all web browsers support all HTTP methods?", '#', class: 'question'
+        %p.answer
+          None of them support all HTTP methods. Browsers are geared for HTML documents, and HTML only defines support for two: GET and POST.  All browsers therefore support only GET and POST.
+
+      %li
+        %span.label.label-important Rails
+        = link_to "What does the 'rails server' command do?", '#', class: 'question'
+        %p.answer
+          The
+          %code rails server
+          command starts an HTTP web server on port 3000.  HTTP requests received on port 3000 (for example,
+          %code http://localhost:3000/products
+          ) will be received and processed by the Rails application located in the current directory when the
+          %code rails server
+          command was issued.
+          %br
+          %br
+          The server will run until forcibly terminated (usually by pressing
+          %code Control-C
+          ).  While it is running, the server will display a continous log of incoming HTTP requests as they are being processed.
+
+      %li
+        %span.label.label-important Rails
+        = link_to "What is a route?", '#', class: 'question'
+        %p.answer
+          A route, defined in
+          %code config/routes.rb
+          , connects an incoming HTTP request with a specific action method of a specific controller class.
