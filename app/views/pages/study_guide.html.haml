@@ -70,3 +70,22 @@
           A route, defined in
           %code config/routes.rb
           , connects an incoming HTTP request with a specific action method of a specific controller class.
+
+      %li
+        %span.label.label-important Rails
+        = link_to "What is a controller?", '#', class: 'question'
+        %p.answer
+          A controller is a Ruby class that is defined in the
+          %code app/controllers
+          folder and derives from
+          %code ActionController::Base
+          \.  The primary responsibility of a controller is to respond to incoming HTTP requests.  A controller can respond to any number of different kinds of requests.  The exact set of requests that can be handled by a given controller is specified by the
+          %strong routes.
+          Instance methods of a controller are called
+          %em actions,
+          and each action can handle exactly one kind of request (that is, a specific HTTP method and URL pattern).
+          %br
+          %br
+          A controller that strictly adheres to
+          %em RESTful
+          conventions will have a maximum of seven methods, but controllers are not required to adhere strictly or at all.
