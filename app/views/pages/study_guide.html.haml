@@ -89,3 +89,64 @@
           A controller that strictly adheres to
           %em RESTful
           conventions will have a maximum of seven methods, but controllers are not required to adhere strictly or at all.
+
+      %li
+        %span.label.label-important Rails
+        = link_to "What is a view?", '#', class: 'question'
+        %p.answer
+          A view, sometimes called a
+          %em view template,
+          is usually an HTML file that can also contain embedded Ruby code.  Views are usually given two file extensions,
+          %code .html.erb
+          \, to indicate that they contain both HTML markup and embedded Ruby logic.
+          %br
+          %br
+          A view has direct access to any controller instance variables that have been defined in the corresponding action method.
+          And since views can contain arbitrary Ruby code, they can also define their own Ruby variables and methods for use within that view template.
+          %br
+          %br
+          Finally, views can access model classes directly to retreive data as needed.
+
+      %li
+        %span.label.label-important Rails
+        = link_to "What is a named route?", '#', class: 'question'
+        %p.answer
+          A route connects an HTTP method and URL pair to a specific controller action method.  But URLs are often needed in other places too: views often contain links and forms that require URLs, and controllers might want to render a 300-level response (a redirect) which require a URL.
+          %br
+          %br
+          Rather than repeat the same URL strings throughout our code, we can attach a name to a route by using the
+          %code as
+          option.  When we attach a name, Rails will generate two methods for us that will return back the URL that's specified in that route.  We can invoke either of these methods anywhere in our app that we would otherwise hardcode a URL string.
+          %br
+          %br
+          The names of the these methods are derived from our route name and always follow a specific convention:
+          %br
+          %br
+          %code {route-name}_url
+          %br
+          and
+          %br
+          %code {route-name}_path
+          %br
+          %br
+          For example, for the following named route:
+          %br
+          %br
+          %code get '/product_catalog', controller: 'products', action: 'index', as: 'catalog'
+          %br
+          %br
+          Rails will now write two methods on our behalf:
+          %code catalog_url
+          and
+          %code catalog_path
+          \.
+          %br
+          %br
+          Here's a link that uses our named route:
+          %br
+          %br
+          %code <%= link_to 'See Our Product Catalog', catalog_url %>
+
+
+
+
