@@ -1,0 +1,8 @@
+%li.lead
+  = exam_question.question
+
+  %ul.unstyled
+  - exam_question.exam_options.each do |option|
+    %li
+      = check_box_tag 'exam_option[]', false, 'checked'
+      = label_tag option.description

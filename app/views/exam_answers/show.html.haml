@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Exam option:
+  = @exam_answer.exam_option_id
+%p
+  %b Exam user:
+  = @exam_answer.exam_user_id
+
+= link_to 'Edit', edit_exam_answer_path(@exam_answer)
+\|
+= link_to 'Back', exam_answers_path

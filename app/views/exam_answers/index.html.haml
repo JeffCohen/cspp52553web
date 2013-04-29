@@ -1,0 +1,21 @@
+%h1 Listing exam_answers
+
+%table
+  %tr
+    %th Exam option
+    %th Exam user
+    %th
+    %th
+    %th
+
+  - @exam_answers.each do |exam_answer|
+    %tr
+      %td= exam_answer.exam_option_id
+      %td= exam_answer.exam_user_id
+      %td= link_to 'Show', exam_answer
+      %td= link_to 'Edit', edit_exam_answer_path(exam_answer)
+      %td= link_to 'Destroy', exam_answer, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Exam answer', new_exam_answer_path

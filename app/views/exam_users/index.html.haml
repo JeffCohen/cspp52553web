@@ -1,0 +1,21 @@
+%h1 Listing exam_users
+
+%table
+  %tr
+    %th Name
+    %th Identifier
+    %th
+    %th
+    %th
+
+  - @exam_users.each do |exam_user|
+    %tr
+      %td= exam_user.name
+      %td= exam_user.identifier
+      %td= link_to 'Show', exam_user
+      %td= link_to 'Edit', edit_exam_user_path(exam_user)
+      %td= link_to 'Destroy', exam_user, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Exam user', new_exam_user_path

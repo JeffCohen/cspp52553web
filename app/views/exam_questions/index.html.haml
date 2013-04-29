@@ -1,0 +1,21 @@
+%h1 Listing exam_questions
+
+%table
+  %tr
+    %th Question
+    %th Kind
+    %th
+    %th
+    %th
+
+  - @exam_questions.each do |exam_question|
+    %tr
+      %td= exam_question.question
+      %td= exam_question.kind
+      %td= link_to 'Show', exam_question
+      %td= link_to 'Edit', edit_exam_question_path(exam_question)
+      %td= link_to 'Destroy', exam_question, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Exam question', new_exam_question_path

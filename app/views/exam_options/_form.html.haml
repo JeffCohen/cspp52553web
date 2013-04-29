@@ -1,0 +1,16 @@
+= form_for @exam_option do |f|
+  - if @exam_option.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@exam_option.errors.count, "error")} prohibited this exam_option from being saved:"
+      %ul
+        - @exam_option.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :exam_question_id
+    = f.number_field :exam_question_id
+  .actions
+    = f.submit 'Save'

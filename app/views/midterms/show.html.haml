@@ -1,0 +1,28 @@
+.row
+  .page-header
+    %h1
+      Spring 2013 Midterm
+      %small= @user.name
+
+.row
+  = button_to "I'm Done", '#', class: 'pull-right btn btn-success',
+    confirm: "Are you sure you're finished?"
+
+  %p.lead
+    %strong For each question, select all correct options.  There may be zero or more correct options per question.
+
+.row
+  %ol
+    - @questions.each do |q|
+      %li.exam_question
+        %strong= q.question
+
+        %ul.unstyled
+          - q.exam_options.each do |option|
+            %li
+              %label.check_box
+                = check_box_tag "exam_option[#{option.id}]", "1", false,class: 'exam_checkbox'
+                = option.description
+
+
+

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @exam_option.description
+%p
+  %b Exam question:
+  = @exam_option.exam_question_id
+
+= link_to 'Edit', edit_exam_option_path(@exam_option)
+\|
+= link_to 'Back', exam_options_path

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @exam_user.name
+%p
+  %b Identifier:
+  = @exam_user.identifier
+
+= link_to 'Edit', edit_exam_user_path(@exam_user)
+\|
+= link_to 'Back', exam_users_path

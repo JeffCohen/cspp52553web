@@ -1,0 +1,15 @@
+.page-header
+  %h1 CSPP 52553 - Spring 2013 Midterm
+
+.row
+  .span10
+    %h3 Please Select Your Name From The List Below:
+
+.row
+  .span11
+    %ul.unstyled.exam_user_list
+      - ExamUser.order('name asc').each do |user|
+        %li= button_to user.name, midterms_url(id: user.id), class: 'btn btn-primary'
+
+
+

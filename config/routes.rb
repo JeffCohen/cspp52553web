@@ -1,5 +1,17 @@
 CSPP52553App::Application.routes.draw do
 
+  resources :exam_users
+
+
+  resources :exam_answers
+
+
+  resources :exam_options
+
+
+  resources :exam_questions
+
+
   resources :venues
   resources :events
   resources :students
@@ -10,6 +22,10 @@ CSPP52553App::Application.routes.draw do
   post "rps" => 'rps#create'
   get "poker" => 'cards#deal', as: 'poker'
   get "scrabble(/:word)" => 'scrabble#score'
+
+  get '/midterm' => 'midterms#show'
+  get '/midterm/login' => 'midterms#new'
+  post '/midterms' => 'midterms#create'
 
   root to: "pages#home"
 

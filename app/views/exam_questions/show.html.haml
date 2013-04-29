@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Question:
+  = @exam_question.question
+%p
+  %b Kind:
+  = @exam_question.kind
+
+= link_to 'Edit', edit_exam_question_path(@exam_question)
+\|
+= link_to 'Back', exam_questions_path
