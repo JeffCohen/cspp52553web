@@ -5,6 +5,7 @@
 
     %h3 class content
     %ul
+      %li= link_to "Slides from Week 4", slides_url(:spring2013, 5)
       %li= link_to "Slides from Week 4", slides_url(:spring2013, 4)
       %li= link_to "Slides from Week 2", slides_url(:spring2013, 2)
       %li= link_to "Week 2 Lecture Code and Homework ", homework_url(2, :spring, '2013')
@@ -15,7 +16,7 @@
     %ul
       / %li= link_to "Sign in with Twitter", "/oauth_twitter.pdf"
       / %li= link_to "Javascript, jQuery, and Ajax Cheat Sheets", "/javascript.pdf"
-      / %li= link_to "Model Associations Summary Sheets", "/model_associations.pdf"
+      %li= link_to "Model Associations Summary Sheets", "/model_associations.pdf"
       %li= link_to "Final Project Assignment", "/final_project.pdf"
       / %li= link_to "Quick Review for Weeks 1-4", "/weeks1-4.pdf"
       %li= link_to "RCAV and Model Basics PDF", "/rcav-model-basics.pdf"
