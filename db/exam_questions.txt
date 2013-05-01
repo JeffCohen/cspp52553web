@@ -1,0 +1,132 @@
+HTTP can be described as a....
+  a protocol used only by web browsers and servers
+  a request protocol only
+  a request-response protocol
+  a response protocol only
+
+HTTP requests can contain:
+  a "headers" list of key-value pairs
+  a body that can contain text data
+  a resource locator
+  a "footer" list of key-value pairs
+
+A web-based API....
+  always returns JSON, XML, or HTML
+  is a way for two programs to talk to each other
+  can never be used by a web browser directly
+  bypasses the typical HTTP requirements
+
+Browsers can send HTTP requests....
+  using the GET method
+  using the POST method
+  using the PUT method
+  using the DELETE method
+  browsers don't actually use any HTTP methods
+
+The command "rails server" will...
+  start a local web server on port 3000
+  deploy a web server to the internet
+  display a log of http traffic
+  create a new rails application
+A Rails "route"...
+  connects controllers and views together
+  can include querystring parameters
+  connects a url path to a Ruby method in your app
+  must use lowercase characters only
+
+A Rails controller....
+  can contain no more than seven methods
+  derives ultimately from ActionController::Base
+  is responsible for handling HTTP requests
+  must render a view template
+
+A Rails action...
+  is a Ruby method
+  can reside inside any class in your app
+  must have a corresponding view template
+  is responsible for generating an HTTP response
+
+A Rails action...
+  can access querystring parameters with the qrystring[] hash
+  can inspect dynamic route segments
+  can receive form input field values
+  should modify the params[] hash
+
+The following are valid inputs to the render method in a controller action:
+  render "<h1>Greetings</h1>"
+  render 'greetings'
+  render :json => ["hello", "goodbye"]
+  render
+
+A route can be named...
+  by using the :as option in the route definition line
+  to help DRY up controller and view code
+  to generate three helper methods
+  differently from the name of the action
+
+Rails "assets" are....
+  stylesheets
+  javascript files
+  images
+  Ruby code that will never change
+  static HTML files
+
+form_for is different than form_tag because...
+  it will figure out the form method attribute value automatically
+  it will figure out the form action attibute value automatically
+  it can be used for any kind of form you need
+  it should only be used for model-based forms
+
+Models...
+  represent real-world things inside our software
+  can access the params[] hash
+  can contain methods that you manually write
+  always derive from ActiveRecord::Base
+  can be associated to at most one other model
+  can render views
+  should use the singular noun form, i.e. Car, instead of the plural noun form, i.e. Cars
+  can not be accessed from views
+  can contain action methods if the route specifies the model class using the :controller => option
+  are often database-backed
+  allow mass-assignment to all columns by default
+
+RESTful routing...
+  expects the intended action to be in the URL path string
+  leverages the HTTP notion of resources
+  always requires seven actions
+  provides automatic security features
+  defines conventions for all dynamic segments
+  requires that your route names must match your model names
+
+The following are Rails features that intentionally embrace the DRY principle
+  partials
+  models
+  rake routes
+  layouts
+  embedded ruby syntax
+
+Data validations are best implemented by...
+  the controller
+  the model
+  the view
+  the command line
+  rails console
+
+The one primary responsibility of a view is to...
+  DRY up your code
+  generate JSON
+  apply markup to controller-provided data
+  retrieve data from the database
+
+Associations are....
+  implemented in models
+  implemented in controllers   used by models
+  used by controllers
+  used in routes
+
+A view template....
+  can access local variables defined in the corresponding action method
+  can access instance variables defined in the corresponding action method
+  can access instance variables defined in any method of the same controller
+  can define its own local variables
+  can definite its own instance variables

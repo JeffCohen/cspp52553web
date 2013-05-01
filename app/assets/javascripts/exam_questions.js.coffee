@@ -4,5 +4,4 @@
 
 $ ->
   $(".exam_checkbox").on 'click', (e) ->
-    alert e.target.name
-    $.ajax
+    $(e.target).parent('form:first').submit();

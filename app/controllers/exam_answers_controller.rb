@@ -44,6 +44,7 @@ class ExamAnswersController < ApplicationController
 
     respond_to do |format|
       if @exam_answer.save
+        format.js   { head :ok }
         format.html { redirect_to @exam_answer, notice: 'Exam answer was successfully created.' }
         format.json { render json: @exam_answer, status: :created, location: @exam_answer }
       else
