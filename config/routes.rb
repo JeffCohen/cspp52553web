@@ -25,6 +25,7 @@ CSPP52553App::Application.routes.draw do
 
   get '/midterm' => 'midterms#show'
   get '/midterm/login' => 'midterms#new'
+  get '/midterm/done' => 'midterms#done'
   post '/midterms' => 'midterms#create'
 
   root to: "pages#home"

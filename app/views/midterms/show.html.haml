@@ -5,7 +5,7 @@
       %small= @user.name
 
 .row
-  = button_to "I'm Done", '#', class: 'pull-right btn btn-success',
+  = link_to "I'm Done", '/midterm/done', class: 'btn-large pull-right btn btn-success',
     confirm: "Are you sure you're finished?"
 
   %p.lead
@@ -20,13 +20,17 @@
         %ul.unstyled
           - q.exam_options.each do |option|
             %li
-              - obj = @user.exam_answers.find_by_exam_option_id(option.id)
-              - obj ||= @user.exam_answers.build
-              = form_for obj, remote: true do |f|
-                = f.hidden_field :exam_user_id
-                %label.check_box
-                  = f.check_box :exam_option_id, class: 'exam_checkbox'
-                  = option.description
+              %label.check_box
+                - if @user.exam_answers.find_by_exam_option_id(option.id).present?
+                  %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}" checked)
+                - else
+                  %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}")
+                = option.description
+
+.row
+  = link_to "I'm Done", '/midterm/done', class: 'btn-large btn btn-success',
+  confirm: "You can't review your answers beyond this point. Are you sure you're finished?"
+
 
 
 

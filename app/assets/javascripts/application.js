@@ -15,3 +15,18 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+$(function() {
+  $(".exam_checkbox").on("click", function(e) {
+    d = $(e.target).data("option")
+    $.ajax({type: 'PUT', url: "/exam_answers/" + d,
+            data: { checked: e.target.checked }});
+  });
+});
+
+// $ ->
+//   $(".exam_checkbox").on 'click', (e) ->
+//     d = e.target.data("option")
+//     $.ajax(type: "PUT"
+//            url: "/exam_options/1"
+//            dataType: 'js'
+//            data: { e.target.checked })

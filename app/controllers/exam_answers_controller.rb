@@ -1,4 +1,7 @@
 class ExamAnswersController < ApplicationController
+
+  before_filter :require_midterm_session
+
   # GET /exam_answers
   # GET /exam_answers.json
   def index
@@ -57,23 +60,26 @@ class ExamAnswersController < ApplicationController
   # PUT /exam_answers/1
   # PUT /exam_answers/1.json
   def update
-    @exam_answer = ExamAnswer.find(params[:id])
+    logger.info "ExamUser: #{@user ? @user.inspect : "NO ONE!"}"
+    @exam_answer = @user.exam_answers.find_by_exam_option_id(params[:id])
+    @exam_answer ||= @user.exam_answers.build(exam_option_id: params[:id])
+    if params["checked"] == 'true'
+      @exam_answer.save
+    else
+      @exam_answer.destroy
+    end
 
     respond_to do |format|
-      if @exam_answer.update_attributes(params[:exam_answer])
-        format.html { redirect_to @exam_answer, notice: 'Exam answer was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @exam_answer.errors, status: :unprocessable_entity }
-      end
+      format.js   { head :ok }
+      format.html { redirect_to @exam_answer, notice: 'Exam answer was successfully updated.' }
+      format.json { head :no_content }
     end
   end
 
   # DELETE /exam_answers/1
   # DELETE /exam_answers/1.json
   def destroy
-    @exam_answer = ExamAnswer.find(params[:id])
+    @exam_answer = @user.exam_answers.find(params[:id])
     @exam_answer.destroy
 
     respond_to do |format|
