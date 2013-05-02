@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def require_midterm_session
     if session[:exam_user_id].blank?
       redirect_to midterm_login_url
+      return
     end
     @user = ExamUser.find(session[:exam_user_id])
   end
