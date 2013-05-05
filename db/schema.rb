@@ -60,8 +60,10 @@ ActiveRecord::Schema.define(:version => 20130429030501) do
   create_table "exam_users", :force => true do |t|
     t.string   "name"
     t.string   "identifier"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "data_backup"
+    t.boolean  "in_session",  :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "students", :force => true do |t|

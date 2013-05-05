@@ -1,20 +1,30 @@
-%h1 Listing exam_users
+%h1 Listing Exam Users
 
-%table
+%table.table.table-striped
   %tr
     %th Name
     %th Identifier
-    %th
-    %th
-    %th
+    %th Progress
 
   - @exam_users.each do |exam_user|
     %tr
-      %td= exam_user.name
+      %td= link_to exam_user.name, edit_exam_user_path(exam_user)
       %td= exam_user.identifier
-      %td= link_to 'Show', exam_user
-      %td= link_to 'Edit', edit_exam_user_path(exam_user)
-      %td= link_to 'Destroy', exam_user, method: :delete, data: { confirm: 'Are you sure?' }
+      %td
+        - if exam_user.in_session?
+          - if exam_user.exam_options.count == 0
+            Started.
+          - else
+            On question ##{exam_user.exam_options.last.exam_question.position}.
+            = exam_user.exam_options.count
+            options selected so far.
+        - elsif exam_user.exam_options.count > 0
+          Finished.
+          = exam_user.exam_options.count
+          options were selected.
+        - else
+          Not Started.
+
 
 %br
 

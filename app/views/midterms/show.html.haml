@@ -4,32 +4,37 @@
       Spring 2013 Midterm
       %small= @user.name
 
-.row
-  = link_to "I'm Done", '/midterm/done', class: 'btn-large pull-right btn btn-success',
-    confirm: "Are you sure you're finished?"
+= form_tag '/midterm/done', method: 'post' do
 
-  %p.lead
-    %strong For each question, select all correct options.  There may be zero or more correct options per question.
+  .row
+    = submit_tag "I'm Done", class: 'btn-large pull-right btn btn-success', confirm: "Are you sure you're finished?"
 
-.row
-  %ol
-    - @questions.each do |q|
-      %li.exam_question
-        %strong= q.question
+    %p.lead
+      %strong For each question, select all correct options.  There may be zero or more correct options per question.
 
-        %ul.unstyled
-          - q.exam_options.each do |option|
-            %li
-              %label.check_box
-                - if @user.exam_answers.find_by_exam_option_id(option.id).present?
-                  %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}" checked)
-                - else
-                  %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}")
-                = option.description
+  .row
+    %ol
+      - @questions.each do |q|
+        %li.exam_question
+          %p
+            %strong= q.question
+          - if q.code.present?
+            %p
+              %code= q.code
 
-.row
-  = link_to "I'm Done", '/midterm/done', class: 'btn-large btn btn-success',
-  confirm: "You can't review your answers beyond this point. Are you sure you're finished?"
+          %ul.unstyled
+            - q.exam_options.each do |option|
+              %li
+                %label.check_box
+                  - if @user.exam_answers.find_by_exam_option_id(option.id).present?
+                    %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}" checked)
+                  - else
+                    %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}")
+                  = option.description
+
+
+  .row
+    = submit_tag "I'm Done", class: 'btn-large pull-right btn btn-success', confirm: "Are you sure you're finished?"
 
 
 

@@ -12,5 +12,8 @@
   .field
     = f.label :identifier
     = f.text_field :identifier
+  .field
+    = f.label :in_session, "In Session?"
+    = f.check_box :in_session
   .actions
     = f.submit 'Save'

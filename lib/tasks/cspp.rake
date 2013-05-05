@@ -53,7 +53,11 @@ namespace :cspp do
       next if line.blank?
       puts line
       if line !~ /^\s+/
-        q = ExamQuestion.create(question: line.strip)
+        line.strip!
+        line =~ /<code>(.+)$/
+        code = $1
+        line = line[0, line.index('<code>')] if code.present?
+        q = ExamQuestion.create(question: line.strip, code: code)
       else
         q.exam_options.create description: line.strip
       end
