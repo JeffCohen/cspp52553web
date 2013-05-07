@@ -13,7 +13,7 @@
       %strong For each question, select all correct options.  There may be zero or more correct options per question.
 
   .row
-    %ol
+    %ol{:start => 4}
       - @questions.each do |q|
         %li.exam_question
           %p
