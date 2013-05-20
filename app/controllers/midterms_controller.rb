@@ -8,6 +8,7 @@ class MidtermsController < ApplicationController
     logger.info params[:exam_option].inspect
     @user.toggle! :in_session
     reset_session
+    redirect_to "/midterm/login"
   end
 
   def new

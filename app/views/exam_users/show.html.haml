@@ -1,12 +1,34 @@
-%p#notice= notice
+.row
+  .page-header
+    %h1
+      Spring 2013 Midterm
+      %small
+        = @exam_user.name
+        (
+        = @exam_user.identifier
+        )
+    %h2 Score: #{@exam_user.score}
+.row
+  %ol{:start => 4}
+    - questions = ExamQuestion.order('position asc')
+    - questions.each do |q|
+      %li.exam_question
+        %p
+          %strong= q.question
+        - if q.code.present?
+          %p
+            %code= q.code
 
-%p
-  %b Name:
-  = @exam_user.name
-%p
-  %b Identifier:
-  = @exam_user.identifier
+        %ul.unstyled
+          - q.exam_options.each do |option|
+            %li
+              %label.check_box
+                - if @exam_user.exam_answers.find_by_exam_option_id(option.id).present?
+                  %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}" checked)
+                  %strong= option.description
+                - else
+                  %input(type="checkbox" name="exam_option[#{option.id}]" class="exam_checkbox" data-option="#{option.id}")
+                  = option.description
 
-= link_to 'Edit', edit_exam_user_path(@exam_user)
-\|
-= link_to 'Back', exam_users_path
+
+

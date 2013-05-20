@@ -3,11 +3,12 @@
     %h1
       Spring 2013 Midterm
       %small= @user.name
+    %h2 Score: #{@user.score}
 
 = form_tag '/midterm/done', method: 'post' do
 
   .row
-    = submit_tag "I'm Done", class: 'btn-large pull-right btn btn-success', confirm: "Are you sure you're finished?"
+    = submit_tag "I'm Done", class: 'btn-large pull-right btn btn-success'
 
     %p.lead
       %strong For each question, select all correct options.  There may be zero or more correct options per question.
@@ -35,7 +36,7 @@
 
   .row
     .span8
-      = submit_tag "I'm Done", class: 'btn-large btn btn-success', confirm: "Are you sure you're finished?"
+      = submit_tag "I'm Done", class: 'btn-large btn btn-success'
 
 
 

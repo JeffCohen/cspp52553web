@@ -15,7 +15,8 @@ namespace :cspp do
   desc "Load Spring Students"
   task :load_students => :environment do
     ExamUser.destroy_all
-    students = { 'Jeff Cohen' => 'jeffcohen', "Raghu Betina" => 'rvb' }
+    students = { 'Answer Key' => 'answerkey' }
+# [{:name=>"Jeff Cohen", :identifier=>"jeffcohen"}, {:name=>"Raghu Betina", :identifier=>"rvb"}, {:name=>"John Burke", :identifier=>"jjburke"}, {:name=>"Kenny Chung", :identifier=>"kenny"}, {:name=>"Jiacheng Dai", :identifier=>"daijiacheng"}, {:name=>"Song Gao", :identifier=>"gaosong1989"}, {:name=>"Petras Kuprys", :identifier=>"pkuprys"}, {:name=>"Jie Li", :identifier=>"lijie323"}, {:name=>"Runbai Ma", :identifier=>"rma"}, {:name=>"Allen Nelson", :identifier=>"adnelson"}, {:name=>"Aakrit Prasad", :identifier=>"aakrit"}, {:name=>"Alejandro Silva", :identifier=>"ags"}, {:name=>"Jilong Sun", :identifier=>"jilongs"}, {:name=>"Andrea Wilson", :identifier=>"awilson8"}, {:name=>"Minsik Yu", :identifier=>"minsik"}, {:name=>"Tianxiang Zhang", :identifier=>"cheonhyangzhang"}]
     students.each do |name, id|
       ExamUser.create name: name, identifier: id
     end

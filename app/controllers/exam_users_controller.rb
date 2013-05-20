@@ -2,7 +2,7 @@ class ExamUsersController < ApplicationController
   # GET /exam_users
   # GET /exam_users.json
   def index
-    @exam_users = ExamUser.all
+    @exam_users = ExamUser.order(:identifier)
 
     respond_to do |format|
       format.html # index.html.erb

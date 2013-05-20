@@ -19,9 +19,8 @@
             = exam_user.exam_options.count
             options selected so far.
         - elsif exam_user.exam_options.count > 0
-          Finished.
-          = exam_user.exam_options.count
-          options were selected.
+          Score:
+          = exam_user.score
         - else
           Not Started.
 

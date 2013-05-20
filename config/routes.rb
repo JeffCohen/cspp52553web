@@ -23,12 +23,15 @@ CSPP52553App::Application.routes.draw do
   get "poker" => 'cards#deal', as: 'poker'
   get "scrabble(/:word)" => 'scrabble#score'
 
-  get '/midterm' => 'midterms#show'
-  get '/midterm/login' => 'midterms#new'
-  get '/midterm/done' => 'midterms#done'
-  post '/midterms' => 'midterms#create'
-  post '/midterm/done' => 'midterms#done'
+  if Rails.env.development?
+    get '/midterm' => 'midterms#show'
+    get '/midterm/login' => 'midterms#new'
+    get '/midterm/done' => 'midterms#done'
+    post '/midterms' => 'midterms#create'
+    post '/midterm/done' => 'midterms#done'
+  end
 
+  get '/midterm_key' => 'pages#midterm_key'
   root to: "pages#home"
 
   get '/winter2013' => 'pages#winter2013', as: 'winter2013'
